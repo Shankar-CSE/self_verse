@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:self_verse/screens/getStarted.dart';
 import 'package:self_verse/screens/home.dart';
@@ -18,14 +17,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _mybox = Hive.box("getStartedBox");
+    final mybox = Hive.box("getStartedBox");
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Self verse',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: _mybox.get("started") == null
+      home: mybox.get("started") == null
           ? const GetStarted()
           : const Home(),
     );
