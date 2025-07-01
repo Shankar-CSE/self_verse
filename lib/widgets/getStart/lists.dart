@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class  GetStartCards {
+/// A class that provides a list of card data for the Get Started section.
+class GetStartCards {
+  // List of card data, each represented as a map with icon, title, subtitle, color, and gradient.
   final List<Map<String, dynamic>> _cards = [
     {
       'icon': Icons.self_improvement,
@@ -32,8 +34,8 @@ class  GetStartCards {
     },
   ];
 
+  /// Returns the list of card data.
   List<Map<String, dynamic>> getCards() {
     return _cards;
   }
-
 }

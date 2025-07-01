@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// A widget that displays an onboarding card with animated icon, title, and subtitle.
 class OnboardingCard extends StatelessWidget {
+  /// The card data containing icon, title, subtitle, and gradient colors.
   final Map<String, dynamic> card;
+
+  /// Animation for scaling the icon and fading in text.
   final Animation<double> scaleAnimation;
+
+  /// Animation for sliding the widgets into view.
   final Animation<Offset> slideAnimation;
 
   const OnboardingCard({
@@ -19,7 +25,7 @@ class OnboardingCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // Animated icon
+          // Animated icon with slide and scale transitions
           SlideTransition(
             position: slideAnimation,
             child: ScaleTransition(
@@ -51,7 +57,7 @@ class OnboardingCard extends StatelessWidget {
 
           const SizedBox(height: 40),
 
-          // Animated title
+          // Animated title with slide and fade transitions
           SlideTransition(
             position: slideAnimation,
             child: FadeTransition(
@@ -71,7 +77,7 @@ class OnboardingCard extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          // Animated subtitle
+          // Animated subtitle with slide and fade transitions
           SlideTransition(
             position: slideAnimation,
             child: FadeTransition(
