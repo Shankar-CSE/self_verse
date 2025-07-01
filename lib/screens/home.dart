@@ -13,9 +13,8 @@ class Home extends StatelessWidget {
     // Builds the main scaffold for the Home screen.
     return Scaffold(
       // Custom app bar widget for the Home screen.
-      appBar: AppBar(
-        title: const HomeAppBar(),
-      ),
+      appBar: const HomeAppBar(),
+      
       // Main content of the Home screen.
       body: HomeBody(),
     );
