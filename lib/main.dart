@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/screens/getStarted.dart';
 import 'package:self_verse/screens/home.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Home(),
+      home: Getstarted(),
     );
   }
 }
