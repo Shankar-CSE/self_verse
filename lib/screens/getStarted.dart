@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/dataBase/start.dart';
 import 'package:self_verse/screens/home.dart';
 
-class Getstarted extends StatefulWidget {
-  const Getstarted({super.key});
+class GetStarted extends StatefulWidget {
+  const GetStarted({super.key});
 
   @override
-  State<Getstarted> createState() => _GetstartedState();
+  State<GetStarted> createState() => _GetstartedState();
 }
 
-class _GetstartedState extends State<Getstarted> {
+class _GetstartedState extends State<GetStarted> {
+  Start start = Start();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,6 +28,7 @@ class _GetstartedState extends State<Getstarted> {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                start.getStarted();
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const Home()),
