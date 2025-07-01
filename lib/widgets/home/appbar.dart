@@ -9,7 +9,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      elevation :10,
+      elevation :0,
       leading: Padding(
         padding: const EdgeInsets.only(left: 16, right: 8),
         child: Icon(
@@ -68,17 +68,6 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
             end: Alignment.bottomRight,
             stops: const [0.2, 0.8],
           ),
-          borderRadius: const BorderRadius.vertical(
-            bottom: Radius.circular(30),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.deepPurple.withOpacity(0.5),
-              blurRadius: 12,
-              spreadRadius: 3,
-              offset: const Offset(0, 5),
-            )
-          ],
         ),
       ),
       actions: [
