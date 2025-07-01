@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:self_verse/dataBase/start.dart';
 import 'package:self_verse/screens/home.dart';
-import 'package:self_verse/widgets/home/home_body.dart';
 import 'onboarding_card.dart';
 import 'floating_circle.dart';
 
