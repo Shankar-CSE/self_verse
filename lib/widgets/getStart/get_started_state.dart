@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:self_verse/dataBase/start.dart';
 import 'package:self_verse/screens/home.dart';
@@ -160,14 +162,24 @@ class _GetStartedStateState extends State<GetStartedState>
                 // Skip button
                 Align(
                   alignment: Alignment.topRight,
-                  child: TextButton(
-                    onPressed: _skipToEnd,
-                    child: Text(
-                      'Skip',
-                      style: TextStyle(
-                        color: Colors.white.withOpacity(0.9),
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                      top: 8,
+                      right: 8,
+                    ),
+                    child: TextButton(
+                      onPressed: _skipToEnd,
+                      style: TextButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
+                        backgroundColor: Colors.white.withAlpha((0.5 * 255).toInt()),
+                      ),
+                      child: Text(
+                        'Skip',
+                        style: TextStyle(
+                          color: Colors.black.withAlpha((0.5 * 255).toInt()),
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ),
