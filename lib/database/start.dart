@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 class Start {
   // Open the Hive box named "getStartedBox" for persistent storage
-  final _mybox = Hive.box("getStartedBox");
+  final _mybox = Hive.box("myBox");
 
   // Method to handle app start logic
   void getStarted() {
