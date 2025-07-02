@@ -1,10 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/screens/add_note.dart';
+import 'package:self_verse/screens/home.dart';
 
 class BottomBar extends StatelessWidget {
   const BottomBar({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
+
+List screens = [
+    Home(),
+    AddNote(),
+    Home(),
+    
+  ];
+
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -50,7 +61,12 @@ class BottomBar extends StatelessWidget {
       ],
       currentIndex: 0,
       onTap: (index) {
-        // Handle navigation logic here
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => screens[index],
+          ),
+        );
       },
     )
     );
