@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/database/note_list.dart';
 import 'package:self_verse/screens/add_note.dart';
 import 'package:self_verse/screens/home.dart';
 
-class BottomBar extends StatelessWidget {
-  const BottomBar({super.key});
-  
+class BottomBar extends StatefulWidget {
+  final NoteList noteList;
+  const BottomBar({super.key, required this.noteList});
+
+  @override
+  State<BottomBar> createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
-
-List screens = [
-    Home(),
-    AddNote(),
-    Home(),
-    
-  ];
-
-
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -33,42 +33,48 @@ List screens = [
         elevation: 0,
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        items: [
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.home,
-            color: Colors.black,
-            size: 30.0,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() => _currentIndex = index);
+          
+          if (index == 1) {
+            // Navigate to Add Note screen
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddNote(noteList: widget.noteList),
+              ),
+            );
+          }
+          // Other tabs can be handled here
+        },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+              color: Colors.black,
+              size: 30.0,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.add_circle,
-            color: Colors.black,
-            size: 30.0,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_circle,
+              color: Colors.black,
+              size: 30.0,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(
-            Icons.search,
-            color: Colors.black,
-            size: 30.0,
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.search,
+              color: Colors.black,
+              size: 30.0,
+            ),
+            label: '',
           ),
-          label: '',
-        ),
-      ],
-      currentIndex: 0,
-      onTap: (index) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => screens[index],
-          ),
-        );
-      },
-    )
+        ],
+      ),
     );
   }
 }

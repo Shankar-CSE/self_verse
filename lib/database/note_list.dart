@@ -1,26 +1,19 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 
-class NoteList {
-List <Map<String, dynamic>> notes = [
-    {"title": "Note 1", "content": "This is the content of note 1"},
-    {"title": "Note 2", "content": "This is the content of note 2"},
-    {"title": "Note 3", "content": "This is the content of note 3"},
-];
-  // Method to add a new note
+class NoteList extends ChangeNotifier {
+  List<Map<String, dynamic>> notes = [
+   
+  ];
+
   void addNote(String title, String content) {
     notes.add({"title": title, "content": content});
+    notifyListeners(); // Notify all listeners about the change
   }
 
-  // Method to get all notes
-  List<Map<String, dynamic>> getNotes() {
-    return notes;
-  }
-
-  // Method to delete a note by index
   void deleteNote(int index) {
     if (index >= 0 && index < notes.length) {
       notes.removeAt(index);
+      notifyListeners(); // Notify all listeners about the change
     }
   }
-
 }

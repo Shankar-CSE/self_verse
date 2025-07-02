@@ -4,51 +4,72 @@ import 'package:self_verse/widgets/background/home_background.dart';
 import 'package:self_verse/widgets/notes/note_style.dart';
 
 class HomeBody extends StatefulWidget {
-  const HomeBody({super.key});
+  final NoteList noteList;
+  const HomeBody({super.key, required this.noteList});
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
 }
 
-class _HomeBodyState extends State<HomeBody> with SingleTickerProviderStateMixin {
+class _HomeBodyState extends State<HomeBody> {
+  final TextEditingController _controller = TextEditingController();
 
- 
+  @override
+  void initState() {
+    super.initState();
+    // Listen to changes in noteList
+    widget.noteList.addListener(() {
+      if (mounted) setState(() {});
+    });
+  }
 
-@override
-Widget build(BuildContext context) {
-  NoteList noteList = NoteList();
-  return Container(
-    decoration: const BoxDecoration(
-      color: Colors.transparent,
-    ),
-    child: Stack(
-      children: [
-        const HomeBackground(),
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+  @override
+  void dispose() {
+    widget.noteList.removeListener(() {});
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.transparent,
+      ),
+      child: Stack(
+        children: [
+          const HomeBackground(),
+          Column(
             children: [
+              widget.noteList.notes.isEmpty
+                  ? const Center(
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 40.0),
+                        child: Text(
+                          'No notes available',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                      ),
+                    )
+                  : const SizedBox.shrink(),
               Expanded(
                 child: ListView.builder(
-                  itemCount: noteList.getNotes().length,
+                  itemCount: widget.noteList.notes.length,
                   itemBuilder: (context, index) {
-                    final note = noteList.getNotes()[index];
+                    final note = widget.noteList.notes[index];
                     return NoteStyle(
                       note: note,
                       onDelete: () {
-                        setState(() {
-                          noteList.deleteNote(index);
-                        });
+                        widget.noteList.deleteNote(index);
                       },
                     );
                   },
                 ),
               ),
-            ]
+            ],
           ),
-        ),
-      ],
-    ),
-  );
-}
+          
+        ],
+      ),
+    );
+  }
 }
