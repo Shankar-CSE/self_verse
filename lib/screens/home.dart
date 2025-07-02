@@ -11,10 +11,16 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> {
-  // Create NoteList instance once in state (not in build method)
-  final NoteList noteList = NoteList();
 
+class _HomeState extends State<Home> {
+  late NoteList noteList;
+  
+  @override
+  void initState() {
+    super.initState();
+    noteList = NoteList();
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
