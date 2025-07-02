@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/database/note_list.dart';
+import 'package:self_verse/widgets/home/BottomBar.dart';
 import 'package:self_verse/widgets/home/appbar.dart';
 import 'package:self_verse/widgets/home/home_body.dart';
 
-/// The main Home screen widget of the app.
-/// 
-/// Displays a custom app bar and the main body content.
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  // Create NoteList instance once in state (not in build method)
+  final NoteList noteList = NoteList();
+
+  @override
   Widget build(BuildContext context) {
-    // Builds the main scaffold for the Home screen.
     return Scaffold(
-      // Custom app bar widget for the Home screen.
       appBar: const HomeAppBar(),
-      
-      // Main content of the Home screen.
-      body: HomeBody(),
+      body: HomeBody(noteList: noteList),
+      bottomNavigationBar: BottomBar(noteList: noteList),
     );
   }
 }
