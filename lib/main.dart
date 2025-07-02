@@ -7,7 +7,8 @@ import 'package:self_verse/screens/home.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensures Flutter bindings are initialized
   await Hive.initFlutter(); // Initializes Hive for Flutter
-  await Hive.openBox('myBox'); // Opens a Hive box for persistent storage
+  await Hive.openBox('myBox'); // Opens a Hive box for persistent 
+  await Hive.openBox('notesBox');
 
   runApp(const MyApp()); // Runs the main app widget
 }
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final mybox = Hive.box("myBox"); // Access the opened Hive box
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Self verse',
