@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:self_verse/widgets/home/BottomBar.dart';
 import 'package:self_verse/widgets/home/appbar.dart';
 import 'package:self_verse/widgets/home/home_body.dart';
 
@@ -17,6 +18,7 @@ class Home extends StatelessWidget {
       
       // Main content of the Home screen.
       body: HomeBody(),
+      bottomNavigationBar: BottomBar()
     );
   }
 }
