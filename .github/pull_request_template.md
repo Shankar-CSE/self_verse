@@ -3,12 +3,14 @@
 Please provide a clear and concise description of your changes.
 
 ## Changes
+
 - [ ] Feature
 - [ ] Bug fix
 - [ ] Documentation
 - [ ] Refactor / Chore
 
 ## Checklist
+
 - [ ] I ran `flutter analyze` with no issues
 - [ ] I ran `flutter test` and tests pass
 - [ ] I formatted code with `dart format .`
