@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NoteStyle extends StatelessWidget {
-  final Map<String, dynamic> note;
+  final Map<String, String> note;
   final VoidCallback onDelete;
 
   const NoteStyle({
@@ -24,7 +24,7 @@ class NoteStyle extends StatelessWidget {
         child: Icon(Icons.note, color: Colors.brown[700]),
       ),
       title: Text(
-        note['title'],
+        note['title'] ?? '',
         style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 18,
@@ -32,7 +32,7 @@ class NoteStyle extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        note['content'],
+        note['content'] ?? '',
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(

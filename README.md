@@ -24,8 +24,6 @@ Data is stored locally using the Hive database, ensuring lightning-fast performa
 
 ---
 
----
-
 ## 🚀 Installation
 
 > Requires: Flutter SDK & Android Studio (or VSCode)
