@@ -12,20 +12,21 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
-  final TextEditingController _controller = TextEditingController();
+  late final VoidCallback _noteListListener;
 
   @override
   void initState() {
     super.initState();
     // Listen to changes in noteList
-    widget.noteList.addListener(() {
+    _noteListListener = () {
       if (mounted) setState(() {});
-    });
+    };
+    widget.noteList.addListener(_noteListListener);
   }
 
   @override
   void dispose() {
-    widget.noteList.removeListener(() {});
+    widget.noteList.removeListener(_noteListListener);
     super.dispose();
   }
 

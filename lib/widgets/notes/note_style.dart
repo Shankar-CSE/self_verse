@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class NoteStyle extends StatelessWidget {
-  final Map<String, dynamic> note;
+  final Map<String, String> note;
   final VoidCallback onDelete;
 
   const NoteStyle({

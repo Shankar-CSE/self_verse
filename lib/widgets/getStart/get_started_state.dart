@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
-import 'package:self_verse/dataBase/start.dart';
+import 'package:self_verse/database/start.dart';
 import 'package:self_verse/screens/home.dart';
 import 'package:self_verse/widgets/getStart/lists.dart';
 import 'onboarding_card.dart';
