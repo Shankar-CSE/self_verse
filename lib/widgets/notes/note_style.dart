@@ -24,7 +24,7 @@ class NoteStyle extends StatelessWidget {
         child: Icon(Icons.note, color: Colors.brown[700]),
       ),
       title: Text(
-        note['title'],
+        note['title'] ?? '',
         style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 18,
@@ -32,7 +32,7 @@ class NoteStyle extends StatelessWidget {
         ),
       ),
       subtitle: Text(
-        note['content'],
+        note['content'] ?? '',
         maxLines: 2,
         overflow: TextOverflow.ellipsis,
         style: TextStyle(
